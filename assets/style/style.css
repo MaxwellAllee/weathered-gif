@@ -1,0 +1,7 @@
+body{
+    background-image: url(../images/Cloud.jpg);
+    font-family: 'Roboto Slab', serif;
+}
+.container{
+    background-color: rgb(77, 73, 73, .6);
+}
