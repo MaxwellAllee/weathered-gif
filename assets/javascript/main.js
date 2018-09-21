@@ -21,7 +21,6 @@ function myFunction() {
             dayCor.push(days[t])
         }
     }
-    console.log(dayCor)
 }
 
 myFunction()
@@ -53,7 +52,6 @@ function apiCall(one, two) {
         "geo": "https://api.ipgeolocation.io/ipgeo?apiKey=dacd7d606fcd4609a50e99daa7bb3699"
     }
     queryURL = qURL[two]
-    console.log(queryURL)
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -67,7 +65,6 @@ function apiCall(one, two) {
                 weather.push(response.list[m].weather[0].main)
             }
             buttons()
-            console.log(weather)
         }
         else if (two === "giphy") {
            
