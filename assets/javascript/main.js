@@ -49,8 +49,8 @@ function apiCall(one, two) {
     var qURL = {
         "weather": "https://api.openweathermap.org/data/2.5/forecast?zip=" + term + ",us&appid=72d410207aa89fc738de834c645b81d4",
         "giphy": "https://api.giphy.com/v1/gifs/search?api_key=0d9L9Qq1wy1xdOWprNPTeR5P8FAK4CUh&q=" + term + "&limit=10&lang=en",
-        "zip": "http://api.zippopotam.us/us/" + term,
-        "geo": "http://ip-api.com/json?"
+        "zip": "https://api.zippopotam.us/us/" + term,
+        "geo": "https://api.ipgeolocation.io/ipgeo?apiKey=dacd7d606fcd4609a50e99daa7bb3699"
     }
     queryURL = qURL[two]
     console.log(queryURL)
@@ -73,9 +73,8 @@ function apiCall(one, two) {
            
             $(".gifSpace").html("")
             for (let o = 0; o < 10; o++) {
-                $(".gifSpace").append(' <div class="col-sm-3"><div class="container mb-3 "><div class="row"><img src="' + response.data[o].images.fixed_width_still.url + '" id = "photo' + o + '" class = "m-2" value ="' + response.data[o].images.fixed_width.url + '"></div><div class="row ml-1">Rating: '+response.data[o].rating +'</div></div></div>' )
+                $(".gifSpace").append(' <div class="col-sm-3"><div class="container mb-3 "><div class="row"><img src="' + response.data[o].images.fixed_width_still.url + '" id = "photo' + o + '" value ="' + response.data[o].images.fixed_width.url + '"></div><div class="row"><a href="https://i.giphy.com/'+response.data[o].id+'.gif" class="my-3 btn btn-primary" download ="gif" class="mr-3">Download</a><h5 class ="mt-3 ml-3">Rating: '+response.data[o].rating +'</h5></div></div></div>' )
             }
-
         }
         else if (two === "zip") {
             if (response.country === "United States") {
@@ -85,7 +84,7 @@ function apiCall(one, two) {
             }
         }
         else {
-            local = response.zip
+            local = response.zipcode
             apiCall(local, "zip")
         }
     })
